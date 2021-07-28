@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorting Path Finding</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+    <section class="container-fluid mb-5" id="projectHeader">
+        <div class="row justify-content-evenly">
+            <h1 class="col-12 text-center" id="projectTitle">Shorting Path Finding</h1>
+            <img src="images/projects/sign.png" alt="">
+            <div class="col-12 row justify-content-center my-5">
+                <h2 class="text-center col-8" id="projectIntro">Using python Tkinter to interact with user to obtain the
+                    starting position and destination and python pygame to visualize the A* shorting path finding
+                    algorithm</h2>
+                <div class="col-8" id="projectVideoButton"><a href="#projectVideo"
+                        class="btn btn-outline-dark my-4 enlarge">
+                        tl;dr Show me the demo video!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="projectDescription">
+            <h3 class="text-center pDSubtitle">
+                Algorithms and libraries Used
+            </h3>
+            <div class="pDAlgorithm row justify-content-center">
+                <ul class="col-md-4">
+                    <li>Python Tkinter and Pygame</li>
+                    <li>A* algorithm</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="projectDescription row">
+            <h2 class="text-center">The essence of this project</h2>
+        </div>
+        <div class="projectDescription row">
+            <div class="col-lg-6">
+                <h3 class="text-center pDSubtitle">
+                    How A* search algorithm works
+                </h3>
+                <p class="pDText">
+                    The algorithm uses heuristic function combine with cost to determine the next node to expand. A
+                    heuristic is extra information the algorithm uses along side with what it is already provided. For
+                    example, when this program is finding the shorting path to the goal, it will uses the straight line
+                    distance from the start to the goal as heuristic function to determine the general "direction" to
+                    explore instead of blindly expanding all the neighboring nodes to brute force the solution.
+                </p>
+            </div>
+            <div class="col-lg-6"><img src="images/path/expand1.png" width="400" height="350" alt=""></div>
+        </div>
+        <div class="projectDescription row">
+            <div class="col-lg-6 order-2 order-lg-1"><img src="images/path/expand2.png" width="400" height="350" alt="">
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2">
+                <p class="pDText">
+                    In the top diagram, A is the start/B is the goal and the neighboring grids of A are expanded. The
+                    number on the top left of all the green squares represent the step cost. It cost 10 to go one step
+                    horizontally and vertically, 14 to go diagonally. The top right number represent the heuristic
+                    function, which is the straight line distance to the goal. Add these two numbers up, we will get the
+                    total cost. Since the grid with 42 is the lowest cost, we will explore it first, therefore marking
+                    it red.
+
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <!-- This algorithm uses
+    the linear distance between the current position and the goal to determine the general direction of
+    the shorting path. -->
+    <section class="container iframe-container" id="projectDescription">
+        <div id="row justify-content-evenly">
+            <div class="videoContainer col-12">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1LbwkJZAZ4A"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+
+    </section>
+</body>
+
+</html>
