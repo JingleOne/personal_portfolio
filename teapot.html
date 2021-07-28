@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Object Reconstruction</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+    <section class="container-fluid mb-5" id="projectHeader">
+        <div class="row justify-content-center">
+            <h1 class="col-12 text-center" id="projectTitle">3D Object Reconstruction</h1>
+            <img src="images/projects/3d.png" alt="">
+            <div class="col-12 row justify-content-center my-5">
+                <h2 class="text-center col-8" id="projectIntro">Building a 3D model from a series of scanned objected
+                    through camera calibration, 3D coordinate triangulation, Poission Surface construction using Python
+                    numpy, scipy, and Jupyter notebook</h2>
+                <div class="col-8" id="projectVideoButton"><a href="#projectVideo"
+                        class="btn btn-outline-dark my-4 enlarge">
+                        tl;dr Show me the demo video!</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="projectDescription">
+            <h3 class="text-center pDSubtitle">
+                Algorithms Used
+            </h3>
+            <div class="pDAlgorithm row justify-content-center">
+                <ul class="col-lg-8">
+                    <li>Camera intrinsic and extrinsic calibration using the checkerboard
+                    </li>
+                    <li>Structured illumination that gives us the grey code to find corresponding points
+                    </li>
+                    <li>Triangulation using least square, residual to retrieve 3D location
+                    </li>
+                    <li>Background mask to exclude the background
+                    </li>
+                    <li>Scipy Delaunay to get the series of triangle indices from the scan
+                    </li>
+                    <li>Boxpruning and triangle pruning to reduce noise
+                    </li>
+                    <li>Laplacian Smoothing to smooth surface and reduce noise
+                    </li>
+                    <li>SVD to align the meshes together
+                    </li>
+                    <li>Meshlab Poisson surface reconstruction
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="projectDescription row">
+            <h2 class="text-center">The essence of this project</h2>
+        </div>
+        <div class="projectDescription row">
+            <div class="col-lg-6">
+                <h3 class="text-center pDSubtitle">
+                    2D input images
+                </h3>
+                <p class="pDText">
+                    The data I used includes scans from 7 different angles of the teapot. For each angle, there were two
+                    camera views, and each camera view had 20 pictures of the structured illuminated teapot. Also, for
+                    each
+                    angle, it included two pictures of the teapot with normal lighting and two background pictures, each
+                    for
+                    one side of the camera view. Each image came with a resolution of 1920x1200 and RGB color channels.
+                </p>
+            </div>
+            <div class="col-lg-6"><img src="images/teapot/input.png" width="500" height="300" alt=""></div>
+        </div>
+        <div class="projectDescription row">
+            <div class="col-lg-6">
+                <h3 class="text-center pDSubtitle">
+                    Camera Calibration
+                </h3>
+                <p class="pDText">
+                    The the focal length, principal points, rotation and translation of the camera were calibrated using
+                    a known size checkerboard, python cv2 and Scipy libraries, and the least square optimization
+                    technique.
+                </p>
+            </div>
+            <div class="col-lg-6"><img src="images/teapot/calibration.png" width="500" height="300" alt=""></div>
+        </div>
+        <div class="projectDescription row justify-content-center">
+            <div class="col-lg-8 col-xxl-4">
+                <h3 class="text-center pDSubtitle">
+                    Structured illumination and gray code
+                </h3>
+                <p class="pDText">
+                    Next, I found the corresponding points from two images by decoding the structured illuminated object
+                    as shown on the right. The bright portion represented a 1 and the dark portion represented a 0.The
+                    horizontal and vertical structured light gave every pixel of the image a unique binary code
+                    representation called graycode. Then I converted this binary value to decimal and found the
+                    corresponding points by paring up the location with the same decimal value.
+
+                </p>
+            </div>
+            <div class="col-lg-6 col-xxl-4" id="pDPairimage"><img src="images/teapot/grayH.png" alt="">
+            </div>
+            <div class="col-lg-6 col-xxl-4 mt-4 mt-lg-0" id="pDPairimage"><img src="images/teapot/grayV.png" alt="">
+            </div>
+        </div>
+        <div class="projectDescription row">
+            <div class="col-lg-6">
+                <h3 class="text-center pDSubtitle">
+                    Triangulation
+                </h3>
+                <p class="pDText">
+                    The triangulation technique can be used to calculate the 3D coordinate of every 2D pixel in the
+                    image. This technique is summarized by the image on the right. S1 and S2 are the 2D
+                    location of
+                    the corresponding points. Ray qL and qR (known) are extending from the 2D points and intersecting
+                    somewhere in P1 and P2. I need to find zL and zR (unknown) which represent how far each ray need to
+                    extend in order for them to intersect.
+                </p>
+            </div>
+            <div class="col-lg-6"><img src="images/teapot/Triangulation.png" height="300" width="600" alt=""></div>
+        </div>
+        <div class="projectDescription row">
+            <div class="col-lg-6">
+                <h3 class="text-center pDSubtitle">
+                    Z-scaling factor
+                </h3>
+                <p class="pDText">
+                    The Z factor can be calculated by the equation on the right. The subscript in the equation
+                    represents the left and the right camera. R represents the rotation matrix and t represents the
+                    translation matrix. In the equation, the part labeled u was the only unknown part.
+                    I used linear least squares optimization to solve the formula A* u - b = 0 for the unknown u. One
+                    thing to be noted is that two rays might not intersect (skewed lines). In that case, I averaged the
+                    values of P1 and P2 to be the final 3D location. After repeating this procedure for every
+                    corresponding point, I obtained the 3D location of each corresponding point in the scan.
+
+                </p>
+            </div>
+            <div class="col-lg-6"><img src="images/teapot/Triangulation2.png" height="300" width="600" alt=""></div>
+        </div>
+        <div class="projectDescription row">
+            <div class="col-lg-6">
+                <h3 class="text-center pDSubtitle">
+                    Scipy Delaunay triangle
+                </h3>
+                <p class="pDText">
+                    After retrieving the 3D points, I used the Delanuay function from Scipy to construct the triangles,
+                    which are the basic shape to form the complete mesh. First I gave the 2D points from left camera as
+                    input, and the output contained the vertices of triangles that have the similar edge sizes. For a
+                    triangle to be a delanuay triangle, it needs to contain only the vertice points inside the circle if
+                    a circle is drawn using the vertice points.
+                </p>
+            </div>
+            <div class="col-lg-6"><img src="images/teapot/delaunay.png" height="400" width="500" alt=""></div>
+        </div>
+        <div class="projectDescription ">
+            <h3 class="text-center pDSubtitle">
+
+            </h3>
+            <p class="pDText">
+
+            </p>
+        </div>
+
+        <div class="projectDescription row justify-content-center">
+            <div class="col-lg-8 col-xxl-4">
+                <h3 class="text-center pDSubtitle">
+                    Box pruning and triangle pruning
+                </h3>
+                <p class="pDText">
+                    Box pruning and triangle pruning used to reduce noisy points and triangles from the mesh.
+                    The box pruning eliminated the points that are outside of the user defined box
+                    boundary. Triangle pruning works by calculating the longest edge of the delaunay triangles and
+                    eliminating those edges which are longer than some user defined length.
+                    The right Shows the difference prior and after the pruning techniques were used.
+                </p>
+            </div>
+            <div class="col-lg-6 col-xxl-4" id="pDPairimage"><img src="images/teapot/no_prune_tp.png" alt="">
+            </div>
+            <div class="col-lg-6 col-xxl-4 mt-4 mt-lg-0" id="pDPairimage"><img
+                    src="images/teapot/mesh1_beforeSmooth.png" alt="">
+            </div>
+        </div>
+
+
+        <div class="projectDescription row">
+            <div class="col-12">
+                <h3 class="text-center pDSubtitle">
+                    Laplacian Smoothing
+                </h3>
+                <p class="pDText">
+                    Laplacian smoothing smoothes out a point in the mesh by using the average position of the vertices
+                    that share an edge with that point. In order to make this algorithm run faster, I found and stored
+                    all the neighbors of every vertex in the mesh in a Hashmap, which makes accessing the neighbors in
+                    O(1) time. Therefore, calculating N vertices in this algorithm only takes O(N+M) times where N is
+                    the number of vertices and M is the number of triangles. Below shows the result of the smoothing
+                    algorithm. The left image is before smoothing, and right image is after smoothing.
+                </p>
+            </div>
+            <div class="col-md-6"><img src="images/teapot/mesh1_beforeSmooth.png" alt=""></div>
+            <div class="col-md-6"><img src="images/teapot/mesh1_afterSmooth.png" alt=""></div>
+        </div>
+
+        <div class="projectDescription row">
+            <div class="col-12">
+                <h3 class="text-center pDSubtitle">
+                    Meshlab SVD to align the meshes together
+                </h3>
+                <p class="pDText">
+                    After getting all the meshes together, I used the meshlab point based alignment to connect all the
+                    meshes together. This feature uses the singular value decomposition to find the best rotation and
+                    translation to move and rotate the points in order to connect the meshes. I manually choose the
+                    corresponding points in two meshes, and the Meshlab output the aligned mesh by finding the rotation
+                    and translation that would minimize the distance between the corresponding points.
+
+                </p>
+            </div>
+            <div class="col-xxl-6 mb-4"><img src="images/teapot/matching_points1.png" alt=""></div>
+            <div class="col-xxl-6"><img src="images/teapot/matching_points2.png" alt=""></div>
+        </div>
+
+        <div class="projectDescription row">
+            <div class="col-12">
+                <h3 class="text-center pDSubtitle">
+                    Meshlab Poisson surface reconstruction
+                </h3>
+                <p class="pDText">
+                    After the alignment of the meshes, the meshes might still not be a closed surface due to the error
+                    in the alignment. The final step was to use the Poisson surface reconstruction in Meshlab to form a
+                    closed surface. This function works by computing the surface normal of the triangles and averages
+                    out the normal of the surface, and thus closing the gap between meshes and filling up the holes.
+                    Below shows the reconstruction result. The left image shows the surface before reconstruction, and
+                    the right image shows the surface after Poisson surface reconstruction.
+                </p>
+            </div>
+            <div class="col-md-6 mb-4"><img src="images/teapot/prepoisson.png" alt=""></div>
+            <div class="col-md-6"><img src="images/teapot/afterpoisson.png" alt=""></div>
+        </div>
+    </section>
+    <section class="container iframe-container" id="projectVideo">
+        <div id="row justify-content-evenly">
+
+            <div class="videoContainer col-12">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/gYAB1eImNqs"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+
+    </section>
+</body>
+
+</html>

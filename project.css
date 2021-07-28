@@ -1,0 +1,75 @@
+
+body{
+    font-family: "Montserrat", sans-serif;
+}
+
+
+#projectHeader{
+    background-color:#e0e0e0;
+}
+
+#projectTitle{
+    padding-top: 50px;
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-size:3rem;
+    color: #8ecae6;
+}
+
+#projectHeader img{
+    height: 150px;
+    width: auto;
+    display: block;
+    margin:20px auto;
+}
+
+#projectHeader h2{
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+}
+
+.iframe-container iframe{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#projectVideoButton a{
+    display: block;
+    align-self:center;
+    margin:100px auto;
+    max-width: 450px;
+    font-size: 1.5rem;
+}
+
+.projectDescription{
+    margin:40px auto;
+}
+
+.pDText{
+    font-size: 1.23rem;
+}
+
+.pDAlgorithm{
+    font-size: 1.25rem;
+}
+
+img{
+    display: block;
+    margin: 0px auto;
+}
+
+#pDPairimage img{
+    max-width:400px;
+    max-height: 450px;
+}
+

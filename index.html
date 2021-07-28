@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jingwen's Portoflio Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="portfolioNav" class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-3" href="#">Jingwen Li's Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navExpand"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navExpand">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" href="#introduction">Introduction</a>
+                    <a class="nav-link" href="#projects">Projects</a>
+                    <a class="nav-link" href="#contact">Contacts</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- home page of my porfolio -->
+    <section class="container-fluid" id="home">
+
+        <section id="name">
+            <div id="homeText">
+                <h1>Hello, I am <br><span>Jingwen Li</span></h1>
+                <h2>CS and Stats Student at UCI.</h2>
+                <h2>From Fremont Bay Area </h2>
+            </div>
+            <img src="images/focused.jpeg" alt="" id="homeImg">
+        </section>
+    </section>
+
+    <!-- intro page -->
+    <section class="container-fluid" id="introduction">
+        <div class="row justify-content-around mb-xl-5">
+            <div class="col-12 text-center" id="introTitle">About Me</div>
+            <section class="col-md-6 col-xl-4 row justify-content-evenly justify-content-md-around aboutMeContent">
+                <div class="aboutMeTitle">Background and Education</div>
+                <div class="aboutMeText">My name is Jingwen Li, and I am from Fremont California. I lived in
+                    GuangZhou
+                    China and moved to the US since February 2014. Currently, I am a UC Irvine undergraduate going
+                    to be a fourth year student. I major in Computer Science and minor at Statistic. Check out my resume
+                    and UCI transcript down below.</div>
+                <div class="col-4 mx-3 mt-5 aboutMeIcons d-lg-none"><img class="aboutMeIcons"
+                        src="images/aboutMe/UCI.png" alt="""></div>
+                <div class=" col-4 mx-3 mt-4 aboutMeIcons d-lg-none"><img class=" aboutMeIcons"
+                        src="images/aboutMe/python.png" alt=""></div>
+            </section>
+            <section
+                class=" col-md-6 col-xl-4 mt-5 mt-md-0 row justify-content-evenly justify-content-md-between aboutMeContent">
+                <div class="aboutMeTitle">Skill Sets</div>
+                <div class="aboutMeText">I use python as my main programming language, and I am also
+                    comfortable with C/C++, Javascript, Go Lang. I have experience with implementing various data
+                    structures and algorithms. Moreover, I have done projects in computer vision, Machine learning, and
+                    more. Check out all the cool projects for more detail down below.</div>
+                <img class="mt-5 aboutMeIcons d-lg-none" src="images/aboutMe/cpp.png" alt="">
+                <img class="mt-5 aboutMeIcons d-lg-none" src="images/aboutMe/mysql.png" alt="">
+            </section>
+            <section class="col-md-6 col-xl-4 my-5 mt-xl-0 aboutMeContent">
+                <div class="aboutMeTitle">What I look Forward To</div>
+                <div class="aboutMeText">
+                    I look forward to solving challenging problems with like-minded individuals. I want to be in a
+                    collaborative environment where people try their best at cracking challenging problems together and
+                    are not shy from sharing their opinions.
+                </div>
+            </section>
+        </div>
+        <div class="row d-none d-lg-flex justify-content-center">
+            <div class="col-md-2"><img class="aboutMeIcons" src="images/aboutMe/UCI.png" alt="""></div>
+            <div class=" col-md-2"><img class=" aboutMeIcons" src="images/aboutMe/python.png" alt=""></div>
+            <div class="col-md-2"><img class="aboutMeIcons" src="images/aboutMe/cpp.png" alt=""></div>
+            <div class="col-md-2"><img class="aboutMeIcons" src="images/aboutMe/javascript.png" alt=""></div>
+            <div class="col-md-2"><img class="aboutMeIcons" src="images/aboutMe/mysql.png" alt=""></div>
+            <div class="col-md-2"><img class="aboutMeIcons" src="images/aboutMe/go-lang.png" alt=""></div>
+        </div>
+    </section>
+
+    <section class="row justify-content-center" id="resume">
+        <div class="parallax">
+        </div>
+        <h1>Checkout my resume and transcript!</h1>
+        <a href="https://drive.google.com/file/d/1eDzMmtVvWm4H66gGyoRUQw_gNBSZzHpP/view?usp=sharing"
+            class="btn btn-outline-light enlarge" role="button">Resume</a>
+        <a href="https://drive.google.com/file/d/1FcwQhJNGENYaiNU4tE43A11xDtGlpQFp/view?usp=sharing"
+            class="btn btn-outline-light enlarge" role="button">Transcript</a>
+    </section>
+
+
+
+    <section class="container-fluid" id="projects">
+        <div class="row justify-content-evenly">
+            <div class="col-12 text-center" id="projectTitle">My Projects</div>
+            <div class="col-12 row justify-content-center my-5">
+                <div class="text-center col-8" id="projectIntro">I worked on various field within Computer Science
+                    such as
+                    computer vision, machine
+                    learning, web development, etc. Here are the lists of cool projects I worked on</div>
+            </div>
+            <section class="myProject col-md-4 enlarge" onclick="location.href='teapot.html';">
+                <img src="images/projects/3d.png" alt="">
+                <h1 class="title"> 3D Object Reconstruction</h1>
+                <div class="description">Reconstructed a 3D model of an object from a series of 2D images. First the
+                    camera view is calibrated and the images were then decoded
+                    Then the 3D location of each point was calculated, and all the 3D points
+                    form a mesh. In the end all meshes are connected together to generate the final 3D model.
+                </div>
+                <a href="#" class="btn btn-outline-dark my-4 enlarge"> learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge"
+                onclick="location.href='https://sky121.github.io/Moogle-Maps/';">
+                <img src="images/projects/ai.png" alt="">
+                <h1 class="title"> Moogle Maps</h1>
+                <div class="description">A self-taught Minecraft agent that is able to take detour when stuck and
+                    navigate through hilly-terrain to
+                    to any selected destination. The agent was built using unsupervised reinforcement learning.
+                    Techniques
+                    such as convolutional neural network and deep neural network were utilized.</div>
+                <a href="https://sky121.github.io/Moogle-Maps/" class="btn btn-outline-dark my-4 enlarge">
+                    learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge" onclick="location.href='search.html';">
+                <img src="images/projects/search.png" alt="">
+                <h1 class="title"> Web Search Engine</h1>
+                <div class="description">A fully working search engine that searches information on our Computer Science
+                    department websites. It is built using python web scraping libraries, reverse indexing of the web
+                    and json cache for fast look up. Cosine similarity technique was used to ensure the search results
+                    are closely related to the search query, and the returned results are ordered by their rank</div>
+                <a href="#" class="btn btn-outline-dark my-4 enlarge">
+                    learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge">
+                <img src="images/projects/sign.png" alt="">
+                <h1 class="title">Shorting Path Finding</h1>
+                <div class="description">A visualization of the A* shorting path finding algorithm. This algorithm uses
+                    the linear distance between the current position and the goal to determine the general direction of
+                    the shorting path. You can interact with the program by drawing the obstacles on the map and
+                    choosing the starting and ending position. The program display the process of finding the path with
+                    different colors.
+                </div><a href="#" class="btn btn-outline-dark my-4 enlarge">
+                    learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge">
+                <img src="images/projects/sudoku.png" alt="">
+                <h1 class="title">Sudoku Solver</h1>
+                <div class="description">A sudoku game that was built with python pygame library. Users can interact
+                    with the GUI and attempt to solve the puzzle. Futhermore, this program comes with an automatic
+                    solver which uses the backtracking recursive algorithm to solve the puzzle. During the solving
+                    process, the program will display the process of trying out different solutions.</div><a href="#"
+                    class="btn btn-outline-dark my-4 enlarge">learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge">
+                <img src="images/projects/notify.png" alt="">
+                <h1 class="title">Class Notifier</h1>
+                <div class="description">Enable users to monitor the enrollment status of selected classes. This program
+                    uses python web scraping library to monitor status and Twillio API to send message notifications to
+                    a phone number. </div>
+                <a href="#" class="btn btn-outline-dark my-4 enlarge">learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge">
+                <img src="images/projects/tetris.png" alt="">
+                <h1 class="title">Columns</h1>
+                <div class="description">A game similar to tetris, where a column of 3 colored blocks drop from the top
+                    of the screen. With more than 3 blocks of same colors lined up vertically, horizontally or
+                    diagonally, the blocks will be eliminated from the screen. </div><a href="#"
+                    class="btn btn-outline-dark my-4 enlarge">
+                    learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge">
+                <img src="images/projects/style.png" alt="">
+                <h1 class="title">Lyffe Style</h1>
+                <div class="description">A chrome extension that is able to copy the style of an art piece and apply a
+                    similar style
+                    to another image. It is built using HTML, CSS, and Javascript for the from end. For the back end,
+                    python flask and Tensorflow were used to accept request and transfer the style of the image</div>
+                <a href="https://devpost.com/software/lyffe-style" class="btn btn-outline-dark my-4 enlarge">
+                    learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge">
+                <img src="images/projects/excel.png" alt="">
+                <h1 class="title">Excel Projects</h1>
+                <div class="description">Checkout the Excel project portfolio down below. I used Visual Basic
+                    Programming language, graphs, formulas and functions, pivot tables, and more in the portfolio
+                    projects </div><a href="#" class="btn btn-outline-dark my-4 enlarge">
+                    learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge">
+                <img src="images/projects/c.png" alt="">
+                <h1 class="title">C/C++ Projects</h1>
+                <div class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam atque tempora
+                    molestiae laborum quibusdam earum ullam enim ipsa nisi. Culpa ipsam nobis ab, ullam ratione optio
+                    praesentium. Magni, corporis voluptates.</div><a href="#" class="btn btn-outline-dark my-4 enlarge">
+                    learn more</a>
+            </section>
+            <section class="myProject col-md-4 enlarge">
+                <img src="images/projects/weightlifting.png" alt="">
+                <h1 class="title">Workout Rack</h1>
+                <div class="description">I built a workout rack using 2x4 lumbers and some weight plates with concrete
+                    in my backyard when the Covid-19 pandemic hit. Weightlifting is my favorite hobby and this makeshift
+                    workout station let me do the thing I like during a stressful period of my life.</div><a href="#"
+                    class="btn btn-outline-dark my-4 enlarge">
+                    learn more</a>
+            </section>
+        </div>
+    </section>
+
+    <section class="row justify-content-center" id="contact">
+        <h1><a href="mailto:jingwenli0851@gmail.com" class="bi bi-envelope-fill enlarge"></a></h1>
+        <h1><a href="https://github.com/JingleOne?tab=repositories" class="bi bi-github enlarge"></a></h1>
+        <h1><a href="https://www.linkedin.com/in/jimmy-li-00556b177/" class="bi bi-linkedin enlarge"></a></h1>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
