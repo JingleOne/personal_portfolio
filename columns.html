@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku Game with Auto-solver</title>
+    <title>Python pygame</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,12 +18,11 @@
 <body>
     <section class="container-fluid mb-5" id="projectHeader">
         <div class="row justify-content-evenly">
-            <h1 class="col-12 text-center" id="projectTitle">Sudoku Game with Auto-solver</h1>
-            <img src="images/projects/sudoku.png" alt="">
+            <h1 class="col-12 text-center" id="projectTitle">Columns</h1>
+            <img src="images/projects/tetris.png" alt="">
             <div class="col-12 row justify-content-center my-5">
-                <h2 class="text-center col-8" id="projectIntro">Built with python pygame library and recursive
-                    backtracking algorithm. Visualize the how the backtracking algorithm works with different color
-                    scheme. </h2>
+                <h2 class="text-center col-8" id="projectIntro">A classic game that is built with python pygame library.
+                </h2>
                 <div class="col-8" id="projectVideoButton"><a href="#projectVideo"
                         class="btn btn-outline-dark my-4 enlarge">
                         tl;dr Show me the demo video!</a>
@@ -33,50 +32,37 @@
     </section>
 
     <section class="container">
-        <div class="projectDescription">
-            <h3 class="text-center pDSubtitle">
-                Algorithms and libraries Used
-            </h3>
-            <div class="pDAlgorithm row justify-content-center">
-                <ul class="col-md-4">
-                    <li>Python Pygame library</li>
-                    <li>Recursive backtracking algorithm</li>
-                </ul>
-            </div>
-        </div>
-
         <div class="projectDescription row">
             <h2 class="text-center">The essence of this project</h2>
         </div>
         <div class="projectDescription row">
             <div class="col-lg-6">
                 <h3 class="text-center pDSubtitle">
-                    How backtracking search algorithm works
+                    The rule of columns
                 </h3>
                 <p class="pDText">
-                    The backtracking algorithm works by trying out the possible candidate at each step, in this project,
-                    number 1-9 at
-                    every empty grid that needs to be filled in. When it tries out a number, if it violated the rule of
-                    sudoku, then it will attempt the next number from 1-9. If none of the number works, that means one
-                    or some of the previous answers were wrong, then it will roll back to the last grid and try out the
-                    next number. On the right diagram, the blue node represents the starting state of your number
-                    solution combination. Every internal nodes are some combination of numbers.
+                    Every time that is no moving blocks in the screen, three blocks will spawn from the top of the
+                    screen and come vertically stacked. Blocks comes in different colors and the amount can be fixed in
+                    the program easily for harder game play. When more than three blocks with the same color are aligned
+                    vertically, horizontally, or diagonally, the blocks will be eliminated from the screen together.
                 </p>
             </div>
-            <div class="col-lg-6"><img src="images/sudoku/backtracking.JPG" width="600" height="350" alt=""></div>
+            <div class="col-lg-6"><img src="images/columns/columns.jpg" width="400" height="350" alt=""></div>
         </div>
     </section>
 
     <section class="container iframe-container" id="projectVideo">
         <div id="row justify-content-evenly">
             <div class="videoContainer col-12">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/_rjrDxF5yrE"
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/GXAUelzKmc0"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
         </div>
     </section>
+
+
 </body>
 
 </html>
