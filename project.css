@@ -23,7 +23,8 @@ body{
     margin:20px auto;
 }
 
-#projectHeader h2{
+
+#projectIntro{
     font-weight: 400;
     font-size: 2rem;
 }
@@ -73,3 +74,23 @@ img{
     max-height: 450px;
 }
 
+
+@media (max-width:1200px){
+    #projectIntro{
+        font-size: 1.5rem;
+    }
+
+    #projectVideoButton a{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width:768px){
+    #projectIntro{
+        font-size: 1.2rem;
+    }
+
+    #projectVideoButton a{
+        font-size: 1rem;
+    }
+}
