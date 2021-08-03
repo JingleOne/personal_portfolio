@@ -21,16 +21,122 @@
             <h1 class="col-12 text-center" id="projectTitle">UCI Web Search Engine</h1>
             <img src="images/projects/search.png" alt="">
             <div class="col-12 row justify-content-center my-5">
-                <h2 class="text-center col-8" id="projectIntro">Building a fully working web search engine on the CS
-                    department domain of UC Irvine using reversed indexing, tf-idf scores, cosine similarity and more
+                <h2 class="text-center col-10 col-md-8" id="projectIntro">Building a fully working web search engine on
+                    the CS
+                    department domain of UC Irvine using inverted indexing, tf-idf scores, cosine similarity and more
                 </h2>
+                <div class="col-8" id="projectVideoButton"><a href="#projectVideo"
+                        class="btn btn-outline-dark my-4 enlarge">
+                        tl;dr Show me the demo video!</a>
+                </div>
             </div>
         </div>
     </section>
 
+    <section class="container">
+        <div class="projectDescription">
+            <h3 class="text-center pDSubtitle">
+                Algorithms and Data Structure Used
+            </h3>
+            <div class="pDAlgorithm row justify-content-center">
+                <ul class="col-lg-8">
+                    <li>Inverted term indexing</li>
+                    <li>Inverted index performance cache</li>
+                    <li>Cosine similarity score for </li>
+                    <li>term frequency–inverse document frequency score evaluation</li>
+                    <li>Stop words filtering</li>
+                </ul>
+            </div>
+        </div>
+        <div class="projectDescription row">
+            <h2 class="text-center">The essence of this project</h2>
+            <hr>
+            <h3 class="text-center">Part I: Documents and webpages preprocessing</h3>
+            <img src="images/search/inverted.png" alt="">
+        </div>
+
+        <div class="projectDescription row justify-content-center">
+            <div class="col-lg-10 col-xxl-4">
+                <h3 class="text-center pDSubtitle">
+                    Custom data structure for storing the web information
+                </h3>
+                <p class="pDText">
+                    Inverted index is similar to a dictionary in which you can find all the documents & webpages (The
+                    term document and webpage can be used interchangeably) that
+                    contains that
+                    specific word. For example, if you look up the term "apple", you can see that documents that contain
+                    "apple" are 3, 5, 6. Since there are way more documents exist in the web compare the the amount of
+                    terms, inverted index is way more efficient for storage and query. The reason why we go for document
+                    ID instead of letters of the URL is because integers takes less space to store.
+                </p>
+            </div>
+        </div>
+
+        <div class="projectDescription row justify-content-center">
+            <div class="col-lg-10 col-xxl-4">
+                <h3 class="text-center pDSubtitle">
+                    Auxiliary data structure and word preprocessing
+                </h3>
+                <p class="pDText">
+                    The words obtained from the documents are filtered by common stop words, and only the stem of the
+                    words are kept to reduce storage space and provide concise query results. Even though the inverted
+                    index provides faster access time, the amount of terms can also be enormous. This could severely
+                    affect the look up time for the terms. Therefore, we cached the terms by storing their location in
+                    the inverted index to provide a faster access.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="projectDescription row">
+            <h3 class="text-center">Part II: Query processing and result ranking</h3>
+            <img src="images/search/tfidf.png" alt="">
+        </div>
+        <div class="projectDescription row justify-content-center">
+            <div class="col-lg-10 col-xxl-4">
+                <h3 class="text-center pDSubtitle">
+                    Term frequency & inverse document frequency score
+                </h3>
+                <p class="pDText">
+                    We use tf-idf score of both the query and various documents to return the most relevant documents to
+                    return to users. The higher the term frequency results in a higher tf-idf score. The more unique a
+                    word will also results in a higher tf-idf score. After obtaining both tf-idf score from query and
+                    the document, the way we compare how relevant the document is for a given query is through cosine
+                    similarity score.
+                </p>
+            </div>
+        </div>
+
+        <div class="projectDescription row">
+            <div class="image_container">
+                <img src="images/search/cos.PNG" alt="">
+            </div>
+
+        </div>
+
+        <div class="projectDescription row justify-content-center">
+            <div class="col-lg-10 col-xxl-4">
+                <h3 class="text-center pDSubtitle">
+                    Cosine similarity
+                </h3>
+                <p class="pDText">
+                    Think of the query and the documents are vectors in a space where the axis are represented by the
+                    terms. Euclidean distance can also be used to measure how close the query is to a document, but it
+                    will not return relevant webpages. Here is an example to demonstrate why is would not be a
+                    good fit. Imagine a webpage contains exactly every words in the query, but the author decided to
+                    duplicate the webpage contents three times. In the vector space, the query vector and the document
+                    vector will point to same direction, but the document vector will be three times as long, so
+                    calculating the Euclidean distance will not work. Instead of
+                    Euclidean distance, cosine similarity is more suitable because it consider the angle between two
+                    vectors to decided how relevant the documents are.
+                </p>
+            </div>
+        </div>
+
+
+    </section>
+
     <section class="container iframe-container" id="projectVideo">
         <div id="row justify-content-evenly">
-
             <div class="videoContainer col-12">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/2isyLpz-Hyw"
                     title="YouTube video player" frameborder="0"
@@ -38,8 +144,6 @@
                     allowfullscreen></iframe>
             </div>
         </div>
-
-
     </section>
 </body>
 

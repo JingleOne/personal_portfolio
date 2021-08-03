@@ -86,7 +86,7 @@ body{
 }
 
 .enlarge { transition: all .2s ease-in-out; }
-.enlarge:hover { transform: scale(1.1); }
+.enlarge:hover { transform: scale(1.05); }
 
 
 .aboutMeIcons{
@@ -196,6 +196,10 @@ body{
         font-size: 1rem;
     }
 
+    #homeText{
+        text-align: center;
+    }
+
     #homeText h1, #homeText h2{
         font-size: 1.5rem;
         line-height: 30px;
@@ -208,8 +212,7 @@ body{
     }
 
     #homeImg{
-        margin-top: 20px;
-        margin-left: 10%;
+        margin:20px auto;
         max-width:180px;
         max-height:300px;
         width: auto;
@@ -221,14 +224,17 @@ body{
     }
 
     #projectIntro{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        padding:0 5%;
     }
 }
 
 @media(max-width:930px){
     #name{   
-        padding:20% 18%;
         width: 100%;
     }
-
+    #homeText{
+        text-align: center;
+        padding:0;
+    }
 }

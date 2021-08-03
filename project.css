@@ -26,7 +26,7 @@ body{
 
 #projectIntro{
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 .iframe-container{
@@ -76,21 +76,46 @@ img{
 
 
 @media (max-width:1200px){
+    #projectTitle{
+        font-size: 2.5rem;
+    }
+
     #projectIntro{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     #projectVideoButton a{
         font-size: 1.2rem;
     }
+
+
+
+    .projectDescription p, .projectDescription li{
+        font-size: 1rem;
+    }
 }
 
 @media (max-width:768px){
+    #projectTitle{
+        font-size: 2rem;
+    }
+
     #projectIntro{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     #projectVideoButton a{
         font-size: 1rem;
     }
+}
+
+.image_container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Resize images */
+.image_container img {
+    width: 100%;
+    height: auto;
 }
