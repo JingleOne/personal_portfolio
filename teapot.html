@@ -87,7 +87,7 @@
                     Camera Calibration
                 </h3>
                 <p class="pDText">
-                    The the focal length, principal points, rotation and translation of the camera were calibrated using
+                    The focal length, principal points, rotation, and translation of the camera were calibrated using
                     a known size checkerboard, python cv2 and Scipy libraries, and the least square optimization
                     technique.
                 </p>
@@ -101,9 +101,9 @@
                 </h3>
                 <p class="pDText">
                     Next, I found the corresponding points from two images by decoding the structured illuminated object
-                    as shown on the right. The bright portion represented a 1 and the dark portion represented a 0.The
+                    as shown on the right. The bright portion represented a 1 and the dark portion represented a 0. The
                     horizontal and vertical structured light gave every pixel of the image a unique binary code
-                    representation called graycode. Then I converted this binary value to decimal and found the
+                    representation called gray code. Then I converted this binary value to decimal and found the
                     corresponding points by paring up the location with the same decimal value.
 
                 </p>
@@ -120,10 +120,9 @@
                 </h3>
                 <p class="pDText">
                     The triangulation technique can be used to calculate the 3D coordinate of every 2D pixel in the
-                    image. This technique is summarized by the image on the right. S1 and S2 are the 2D
-                    location of
-                    the corresponding points. Ray qL and qR (known) are extending from the 2D points and intersecting
-                    somewhere in P1 and P2. I need to find zL and zR (unknown) which represent how far each ray need to
+                    image. This technique is summarized by the image on the right. S1 and S2 are the 2D locations of the
+                    corresponding points. Ray qL and qR (known) are extending from the 2D points and intersecting
+                    somewhere in P1 and P2. I need to find zL and zR (unknown) which represent how far each ray needs to
                     extend in order for them to intersect.
                 </p>
             </div>
@@ -137,11 +136,11 @@
                 <p class="pDText">
                     The Z factor can be calculated by the equation on the right. The subscript in the equation
                     represents the left and the right camera. R represents the rotation matrix and t represents the
-                    translation matrix. In the equation, the part labeled u was the only unknown part.
-                    I used linear least squares optimization to solve the formula A* u - b = 0 for the unknown u. One
-                    thing to be noted is that two rays might not intersect (skewed lines). In that case, I averaged the
-                    values of P1 and P2 to be the final 3D location. After repeating this procedure for every
-                    corresponding point, I obtained the 3D location of each corresponding point in the scan.
+                    translation matrix. In the equation, the part labeled u was the only unknown part. I used linear
+                    least-squares optimization to solve the formula A* u - b = 0 for the unknown u. One thing to be
+                    noted is that two rays might not intersect (skewed lines). In that case, I averaged the values of P1
+                    and P2 to be the final 3D location. After repeating this procedure for every corresponding point, I
+                    obtained the 3D location of each corresponding point in the scan.
 
                 </p>
             </div>
@@ -153,11 +152,11 @@
                     Scipy Delaunay triangle
                 </h3>
                 <p class="pDText">
-                    After retrieving the 3D points, I used the Delanuay function from Scipy to construct the triangles,
-                    which are the basic shape to form the complete mesh. First I gave the 2D points from left camera as
-                    input, and the output contained the vertices of triangles that have the similar edge sizes. For a
-                    triangle to be a delanuay triangle, it needs to contain only the vertice points inside the circle if
-                    a circle is drawn using the vertice points.
+                    After retrieving the 3D points, I used the Delaunay function from Scipy to construct the triangles,
+                    which are the basic shape to form the complete mesh. First I gave the 2D points from the left camera
+                    as input, and the output contained the vertices of triangles that have similar edge sizes. For a
+                    triangle to be a Delaunay triangle, it needs to contain only the vertice inside the circle if
+                    a circle is drawn using the vertice.
                 </p>
             </div>
             <div class="col-lg-6"><img src="images/teapot/delaunay.png" height="400" width="500" alt=""></div>
@@ -177,11 +176,11 @@
                     Box pruning and triangle pruning
                 </h3>
                 <p class="pDText">
-                    Box pruning and triangle pruning used to reduce noisy points and triangles from the mesh.
-                    The box pruning eliminated the points that are outside of the user defined box
-                    boundary. Triangle pruning works by calculating the longest edge of the delaunay triangles and
-                    eliminating those edges which are longer than some user defined length.
-                    The right Shows the difference prior and after the pruning techniques were used.
+                    Box pruning and triangle pruning are used to reduce noisy points and triangles from the mesh. The
+                    box pruning eliminated the points that are outside of the user-defined box boundary. Triangle
+                    pruning works by calculating the longest edge of the Delaunay triangles and eliminating those edges
+                    which are longer than some user-defined length. The right Shows the difference before and after the
+                    pruning techniques were used.
                 </p>
             </div>
             <div class="col-lg-6 col-xxl-4" id="pDPairimage"><img src="images/teapot/no_prune_tp.png" alt="">
@@ -203,7 +202,7 @@
                     all the neighbors of every vertex in the mesh in a Hashmap, which makes accessing the neighbors in
                     O(1) time. Therefore, calculating N vertices in this algorithm only takes O(N+M) times where N is
                     the number of vertices and M is the number of triangles. Below shows the result of the smoothing
-                    algorithm. The left image is before smoothing, and right image is after smoothing.
+                    algorithm. The left image is before smoothing, and the right image is after smoothing.
                 </p>
             </div>
             <div class="col-md-6"><img src="images/teapot/mesh1_beforeSmooth.png" alt=""></div>
@@ -216,7 +215,7 @@
                     Meshlab SVD to align the meshes together
                 </h3>
                 <p class="pDText">
-                    After getting all the meshes together, I used the meshlab point based alignment to connect all the
+                    After getting all the meshes together, I used the meshlab point-based alignment to connect all the
                     meshes together. This feature uses the singular value decomposition to find the best rotation and
                     translation to move and rotate the points in order to connect the meshes. I manually choose the
                     corresponding points in two meshes, and the Meshlab output the aligned mesh by finding the rotation
@@ -237,7 +236,7 @@
                     After the alignment of the meshes, the meshes might still not be a closed surface due to the error
                     in the alignment. The final step was to use the Poisson surface reconstruction in Meshlab to form a
                     closed surface. This function works by computing the surface normal of the triangles and averages
-                    out the normal of the surface, and thus closing the gap between meshes and filling up the holes.
+                    out the normal of the surface and thus closing the gap between meshes and filling up the holes.
                     Below shows the reconstruction result. The left image shows the surface before reconstruction, and
                     the right image shows the surface after Poisson surface reconstruction.
                 </p>
