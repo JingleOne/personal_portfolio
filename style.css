@@ -91,7 +91,7 @@ body{
 
 .aboutMeIcons{
     display: block;
-    margin: 15px auto;
+    margin: auto;
     max-width: 150px;
     height: auto;
     object-fit: contain;
